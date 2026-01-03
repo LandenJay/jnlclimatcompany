@@ -332,7 +332,8 @@ bookBtn.addEventListener("click", async () => {
   const timeValue = timeSlots.value; // "09:00"
   const name = nameInput.value.trim() || "Customer";
   const email = emailInput.value.trim();
-
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
   // basic email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email || !emailRegex.test(email)) {
@@ -342,20 +343,19 @@ bookBtn.addEventListener("click", async () => {
   }
 
   // send booking to backend
-  try {
-    bookBtn.disabled = true;
-    bookBtn.textContent = "Booking...";
-    const resp = await fetch("https://hvac-backend-q6yo.onrender.com/book", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-  date: dateStr,
-  time: timeValue,
-  name,
-  email,
-  phone,
-  address
-})
+  const resp = await fetch("https://hvac-backend-q6yo.onrender.com/book", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    date: dateStr,
+    time: timeValue,
+    name,
+    email,
+    phone,
+    address
+  })
+});
+
 
     });
     const data = await resp.json();
@@ -369,7 +369,7 @@ bookBtn.addEventListener("click", async () => {
       confirmation.textContent = `⚠️ ${data.message || "Failed to book. Try again."}`;
       confirmation.style.color = "red";
     }
-  } catch (err) {
+  catch (err) {
     console.error(err);
     confirmation.textContent = "⚠️ Network error. Could not reach the booking server.";
     confirmation.style.color = "red";
@@ -377,7 +377,7 @@ bookBtn.addEventListener("click", async () => {
     bookBtn.disabled = false;
     bookBtn.textContent = "Confirm Appointment";
   }
-});
+
 
 /* ---------- Initialize ---------- */
 renderCalendar(currentDate);

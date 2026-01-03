@@ -345,10 +345,18 @@ bookBtn.addEventListener("click", async () => {
   try {
     bookBtn.disabled = true;
     bookBtn.textContent = "Booking...";
-    const resp = await fetch("https://hvac-backend-q6yo.onrender.com", {
+    const resp = await fetch("https://hvac-backend-q6yo.onrender.com/book", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ date: dateStr, time: timeValue, name, email })
+      body: JSON.stringify({
+  date: dateStr,
+  time: timeValue,
+  name,
+  email,
+  phone,
+  address
+})
+
     });
     const data = await resp.json();
     if (data.success) {

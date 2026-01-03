@@ -332,8 +332,8 @@ bookBtn.addEventListener("click", async () => {
   const timeValue = timeSlots.value; // "09:00"
   const name = nameInput.value.trim() || "Customer";
   const email = emailInput.value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const address = document.getElementById("address").value.trim();
+  const phone = phoneInput.getElementById().value.trim();
+  const address = addressInput.getElementById().value.trim();
 
   // basic email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

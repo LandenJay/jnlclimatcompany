@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="Untitled design (4).png">
+    <title>Meet Us</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <img class="logo" src="Untitled design (4).png">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="meetus.html">Meet The Team</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+      </ul>
+
+      <!-- Hamburger Menu Button -->
+      <div class="hamburger">
+        <span class="open">☰</span>
+        <span class="close">✖</span>
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+<div class="menu-overlay"></div>
+
+
+<main>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Meet The Team</h1>
+            <p>Honest. Skilled. Reliable.</p>
+        </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider">
+        <h2>Our Leadership</h2>
+    </div>
+
+    <!-- TEAM SECTION -->
+    <section class="team-section">
+
+        <!-- JAXON FIRST -->
+        <div class="team-member fade-in">
+            <img src="IMG_3358.jpeg" alt="Jaxon">
+            <div>
+                <h2>Jaxon Bodily</h2>
+                <p>Born and raised in Roy, Utah, I'm 25 years old and have spent the past six years building my career in the HVAC industry I've always enjoyed the hands-on nature of the trade, but what really keeps me passionate is working with new components and technologies that make systems more efficient, reliable, and better for customers. I take pride in providing honest, high-quality work and helping people stay comfortable in their homes and businesses year-round. Whether it's an installation, repair, or routine maintenance, I'm committed to doing the job right the first time, and treating every customer like family.</p>
+
+                <div class="social-row">
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="mail"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-member fade-in">
+            <img src="IMG_3354.jpeg" alt="Luke">
+            <div>
+                <h2>Luke Coulter</h2>
+                <p>Hi, I'm Luke Coulter, a 25-year-old HVAC tech passionate about keeping homes comfortable all year long. I focus on residential heating and cooling, offering reliable service and honest solutions you can count on. I got into the HVAC trade because I wanted a career built on skill, hard work, and real results-something where doing the job right truly matters. Alongside my partner at J&L Climate Co., we've built our business on transparency, dependability, and pride in every project we take on. Our goal is simple: to make sure every homeowner feels confident and comfortable in their space</p>
+
+                <div class="social-row">
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="mail"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="contact-cta fade-in">
+        <h2>Want to Work With Us?</h2>
+        <p>Get in touch today! We’re here to help with all your HVAC needs.</p>
+        <a class="cta-btn" href="index.html#schedule">Book an Appointment</a>
+    </section>
+
+</main>
+
+<!-- SCROLL TO TOP BUTTON -->
+<button id="scrollTopBtn">↑</button>
+
+<footer>
+    <p>&copy; 2024 J & L Climate Co. All rights reserved.</p>
+</footer>
+<script>
+  // Toggle mobile menu
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const navItems = document.querySelectorAll('.nav-links a');
+  const overlay = document.querySelector('.menu-overlay');
+
+  function toggleMenu() {
+    navLinks.classList.toggle('show');
+    hamburger.classList.toggle('active');
+    overlay.classList.toggle('show');
+  }
+
+  // Hamburger click
+  hamburger.addEventListener('click', toggleMenu);
+
+  // Close when clicking a nav link
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navLinks.classList.remove('show');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('show');
+    });
+  });
+
+  // Close when clicking overlay
+  overlay.addEventListener('click', () => {
+    navLinks.classList.remove('show');
+    hamburger.classList.remove('active');
+    overlay.classList.remove('show');
+  });
+</script>
+
+<script>
+    /* Scroll to top button */
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+        scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* Lucide icons */
+    lucide.createIcons();
+</script>
+
+</body>
+</html>
